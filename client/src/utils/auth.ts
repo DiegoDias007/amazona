@@ -1,3 +1,4 @@
+import { useEffect } from 'react';
 import { useCookies } from 'react-cookie';
 import { useNavigate } from 'react-router-dom';
 
@@ -6,10 +7,12 @@ function useAuth() {
   
   const [cookies] = useCookies(['authToken']);
   const authToken = cookies.authToken;
-  
-  if (!authToken) {
-    navigate("/")
-  }
+
+  useEffect(() => {
+    if (!authToken) {
+      navigate("/");
+    }
+  }, [authToken, navigate]);
 
   return authToken
 }
