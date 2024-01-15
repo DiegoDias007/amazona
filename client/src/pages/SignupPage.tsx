@@ -2,6 +2,8 @@ import { useForm } from "react-hook-form";
 import styled from "styled-components";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
+import createUser from "../utils/createUser";
+import { useNavigate } from "react-router-dom";
 
 const Container = styled.div`
   display: flex;
@@ -61,17 +63,21 @@ export default function SignupPage() {
   const { register, handleSubmit, formState: { errors } } = useForm<UserFormData>({
     resolver: zodResolver(createUserFormSchema)
   })
+  const navigate = useNavigate();
 
-  async function createUser(data: Object) {
-    console.log(JSON.stringify(data))
-    // Create User Logic
-    return data
+  async function onSubmit(data: UserFormData) {
+    try {
+      await createUser(data)
+      navigate("/products")
+    } catch (err) {
+      console.log(err)
+    }
   }
 
   return (
     <Container>
       <Title>Sign Up</Title>
-      <Form onSubmit={handleSubmit(createUser)}>
+      <Form onSubmit={handleSubmit(onSubmit)}>
         <div>
           <Input type="text" {...register("firstName")} placeholder="First Name" />
           {errors.firstName && <div>{errors.firstName.message}</div>}
