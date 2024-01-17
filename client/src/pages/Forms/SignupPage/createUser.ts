@@ -1,4 +1,4 @@
-import api from "./axios"
+import api from "../../../utils/axios"
 
 type createUserDataSchema = {
   firstName: string;
@@ -7,13 +7,10 @@ type createUserDataSchema = {
   password: string;
 };
 
-const createUserURL = "http://localhost:3000/auth/signup";
-
-async function useCreateUser (
-  data: createUserDataSchema
-) {
+async function useCreateUser (data: createUserDataSchema) {
   try {
-    await api.post(createUserURL, data);
+    const response = await api.post("/auth/signup", data);
+    return response
   } catch (error) {
     console.log(error)
     throw error;
