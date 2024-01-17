@@ -1,4 +1,4 @@
-import { Body, Controller, Post, Res } from '@nestjs/common';
+import { Body, Controller, HttpCode, Post, Res } from '@nestjs/common';
 import { AuthService } from "./auth.service";
 import { loginUserDto } from './dto/loginUser.dto';
 import { Prisma } from "@prisma/client";
@@ -9,16 +9,26 @@ import { Response } from "express";
 export class AuthController {
   constructor(private readonly authService: AuthService) {}
 
+  @Public()
+  @HttpCode(200)
   @Post("login")
-  login(@Body() {email, password}: loginUserDto, @Res({ passthrough: true }) response: Response) {
-    const token = this.authService.login(email, password)
+  async login(@Body() {email, password}: loginUserDto, @Res({ passthrough: true }) response: Response) {
+    const token = await this.authService.login(email, password)
     response.cookie("authToken", token, {httpOnly: true})
+    return { success: true }
   }
 
   @Public()
   @Post("signup")
-  signUp(@Body() signUpUserDto: Prisma.UserCreateInput, @Res({ passthrough: true }) response: Response) {
-    const token = this.authService.signUp(signUpUserDto)
+  async signUp(@Body() signUpUserDto: Prisma.UserCreateInput, @Res({ passthrough: true }) response: Response) {
+    const token = await this.authService.signUp(signUpUserDto)
     response.cookie("authToken", token, {httpOnly: true})
+    return { success: true }
+  }
+
+  @Post("logout")
+  async logout(@Res({ passthrough: true }) response: Response) {
+    response.clearCookie("authToken")
+    return { success: true }
   }
 }
