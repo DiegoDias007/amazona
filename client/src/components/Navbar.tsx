@@ -3,7 +3,7 @@ import styled from "styled-components";
 import Button from "./Button";
 import Logo from "./Logo";
 import useAuthStore from "../store/authStore";
-import api from "../utils/axios";
+import api from "../utils/api";
 
 const NavbarContainer = styled.div`
 	display: flex;

@@ -9,7 +9,14 @@ export class ProductsService {
 
   async getAllProducts() {
     const products = await this.prisma.product.findMany()
-    return products
+    const simplifiedProducts = products.map(product => ({
+      id: product.id,
+      name: product.name,
+      price: product.price,
+      category: product.category,
+      image: product.images[0]
+    })) 
+    return simplifiedProducts
   }
 
   async getSingleProduct(id: string) {

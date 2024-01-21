@@ -16,6 +16,7 @@ import CartPage from "./pages/CartPage";
 import ProductsPage from "./pages/ProductsPage/ProductsPage";
 import ProductDetailsPage from "./pages/ProductDetailsPage";
 import { CookiesProvider } from "react-cookie";
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 
 const router = createBrowserRouter(
 	createRoutesFromElements(
@@ -31,10 +32,14 @@ const router = createBrowserRouter(
 	)
 );
 
+const queryClient = new QueryClient();
+
 ReactDOM.createRoot(document.getElementById("root")!).render(
-	<CookiesProvider>
-		<React.StrictMode>
-			<RouterProvider router={router} />
-		</React.StrictMode>
-	</CookiesProvider>
+	<QueryClientProvider client={queryClient}>
+		<CookiesProvider>
+			<React.StrictMode>
+				<RouterProvider router={router} />
+			</React.StrictMode>
+		</CookiesProvider>
+	</QueryClientProvider>
 );
