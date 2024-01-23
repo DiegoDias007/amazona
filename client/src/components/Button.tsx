@@ -5,7 +5,7 @@ type ButtonProps = {
 	textColor?: string;
 	backgroundColor?: string;
 	hoverColor?: string;
-	onClick: () => void;
+	onClick: (...args: any[]) => void;
 };
 
 interface StyledButtonProps {

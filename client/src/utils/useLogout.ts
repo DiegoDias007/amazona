@@ -1,4 +1,4 @@
-import useAuthStore from "../store/authStore";
+import useAuthStore from "../store/useAuthStore";
 import api from "./api";
 
 async function useLogout() {

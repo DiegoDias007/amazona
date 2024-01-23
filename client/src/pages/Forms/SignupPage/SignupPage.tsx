@@ -4,7 +4,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import createUser from "./createUser";
 import { Link, useNavigate } from "react-router-dom";
 import { Container, Input, SubmitButton, Form, Title } from "../Form";
-import useAuthStore from "../../../store/authStore";
+import useAuthStore from "../../../store/useAuthStore";
 import { useState } from "react";
 import { AxiosError } from "axios";
 

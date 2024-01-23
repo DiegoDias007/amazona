@@ -1,6 +1,9 @@
 import styled from "styled-components";
 import ProductProps from "../interfaces/ProductProps";
 import Button from "./Button";
+import { useNavigate  } from "react-router-dom";
+import useCartStore from "../store/useCartStore";
+import React from "react";
 
 const ProductCard = styled.div`
 	display: flex;
@@ -46,13 +49,20 @@ const ProductCard = styled.div`
 `;
 
 export default function Product({ product }: ProductProps) {
-	
-  function addToCart() {
+	const navigate = useNavigate();
+  const addProduct = useCartStore((state) => state.addProduct)
 
+  function addToCart(event: React.MouseEvent<HTMLButtonElement>) {
+    event.stopPropagation();
+    addProduct(product)
+  }
+
+  function navigateToProductPage() {
+    navigate(`/products/${product.id}`)
   }
   
   return (
-		<ProductCard>
+		<ProductCard onClick={() => navigateToProductPage()}>
 			<img src={product.image} alt={product.name} />
 			<h1>{product.name}</h1>
 			<span>Category: {product.category}</span>

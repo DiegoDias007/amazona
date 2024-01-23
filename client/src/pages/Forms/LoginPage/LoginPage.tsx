@@ -5,7 +5,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { Link, useNavigate } from "react-router-dom";
 import loginUser from "./loginUser";
 import { useState } from "react";
-import useAuthStore from "../../../store/authStore";
+import useAuthStore from "../../../store/useAuthStore";
 import { AxiosError } from "axios";
 
 const loginUserFormSchema = z.object({

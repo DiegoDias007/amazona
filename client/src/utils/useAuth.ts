@@ -1,5 +1,5 @@
 import { useLocation, useNavigate } from "react-router-dom";
-import useAuthStore from "../store/authStore";
+import useAuthStore from "../store/useAuthStore";
 import { useEffect } from "react";
 
 export default function useAuth() {
@@ -15,7 +15,7 @@ export default function useAuth() {
         return navigate("/")
       }
     } else {
-      if (currentURL === "/login" || currentURL === "/signup") {
+      if (currentURL === "/login" || currentURL === "/signup" || currentURL === "/") {
         return navigate("/products")
       } else {
         return;

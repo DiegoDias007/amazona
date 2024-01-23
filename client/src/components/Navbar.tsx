@@ -2,7 +2,7 @@ import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 import Button from "./Button";
 import Logo from "./Logo";
-import useAuthStore from "../store/authStore";
+import useAuthStore from "../store/useAuthStore";
 import api from "../utils/api";
 import CartIcon from "./CartIcon";
 

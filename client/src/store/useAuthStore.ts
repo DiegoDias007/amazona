@@ -1,9 +1,5 @@
 import { create } from 'zustand';
-
-interface AuthStore {
-  authenticated: boolean;
-  setAuthenticated: (value: boolean) => void;
-}
+import AuthStore from '../interfaces/AuthStore';
 
 const useAuthStore = create<AuthStore>((set) => {
   const initialAuthenticatedState = localStorage.getItem('authenticated') === 'true';
