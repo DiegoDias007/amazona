@@ -2,8 +2,12 @@ import { useQuery } from "@tanstack/react-query";
 import api from "./api";
 
 async function fetchProducts() {
-  const response = await api.get("/products");
-  return response;
+  try {
+    const response = await api.get("/products");
+    return response;
+  } catch(err) {
+    console.log(err)
+  }
 }
 
 export default function useProductsData() {

@@ -4,6 +4,7 @@ type ProductResponse = {
   rating: string;
   image: string;
   category: string;
+  price: number;
 };
 
 export default ProductResponse;

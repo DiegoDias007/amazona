@@ -4,6 +4,7 @@ import Button from "./Button";
 import Logo from "./Logo";
 import useAuthStore from "../store/authStore";
 import api from "../utils/api";
+import CartIcon from "./CartIcon";
 
 const NavbarContainer = styled.div`
 	display: flex;
@@ -18,6 +19,7 @@ const RightSide = styled.div`
 	display: flex;
 	align-items: center;
 	background-color: var(--background-color);
+  gap: 10px;
 `;
 
 const logoutURL = "http://localhost:3000/auth/logout"
@@ -49,13 +51,14 @@ export default function Navbar() {
 					</>
 				) : (
 					<>
-						<Button
+            <Button
 							text="Logout"
 							textColor="white"
 							backgroundColor="var(--primary-color)"
 							hoverColor="var(--secondary-color)"
 							onClick={handleLogout}
 						/>
+            <CartIcon />
 					</>
 				)}
 			</RightSide>
