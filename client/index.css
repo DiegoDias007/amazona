@@ -6,8 +6,7 @@
   font-family: "Poppins", sans-serif;
   font-weight: 600;
   color: var(--text-color);
-  background-color: var(--background-color)
-}
+  background-color: var(--background-color)}
 
 :root {
   --primary-color: #162b52;
