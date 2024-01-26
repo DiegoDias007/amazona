@@ -22,6 +22,10 @@ const Container = styled.div`
     background-color: var(--primary-color);
     margin-bottom: 20px;
   }
+
+  @media (max-width: 900px) {
+    width: 100%;
+  }
 `;
 
 interface CartRightSideProps {
@@ -33,7 +37,7 @@ export default function CartRightSide({total}: CartRightSideProps) {
     <Container>
       <h1>Total amount</h1>
       <span>${total}</span>
-      <Button text="Checkout" onClick={() => null}></Button>
+      <Button text="Checkout" onClick={() => console.log(total)}></Button>
     </Container>
   )
 }
