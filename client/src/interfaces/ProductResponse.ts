@@ -5,6 +5,7 @@ interface ProductResponse {
   image: string;
   category: string;
   price: number;
+  description?: string;
 }
 
 export default ProductResponse;

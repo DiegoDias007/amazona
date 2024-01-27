@@ -21,6 +21,12 @@ export class ProductsService {
 
   async getSingleProduct(id: string) {
     const product = await this.prisma.product.findUnique({where: { id }})
-    return product
+    const simplifiedProduct = {
+      ...product,
+      image: product.images[0]
+    }
+    delete simplifiedProduct.images
+    
+    return simplifiedProduct
   }
 }
