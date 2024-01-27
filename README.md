@@ -2,7 +2,9 @@
 E-commerce Full Stack
 
 ## Preview
+/products
 ![image](https://github.com/DiegoDias007/ecommerce/assets/127633385/39705754-e4c1-4cda-bc69-cc2a0775d509)
+/products/:id
 ![image](https://github.com/DiegoDias007/ecommerce/assets/127633385/5587263e-8612-443d-a6bb-9a8e22996bc2)
 
 ## Description
@@ -21,5 +23,5 @@ The project utilizes the following technologies: Typescript, React, NestJs, and 
 4. Navigate to the "client" folder and install the frontend dependencies: `npm install`
 
 ## Running the Project
-- Run the backend: `npm run start:dev`
-- Run the frontend: `npm start`
+- Run the backend inside the "server" folder: `npm run start:dev`
+- Run the frontend inside the "client" folder: `npm run dev`
