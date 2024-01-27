@@ -23,5 +23,5 @@ The project utilizes the following technologies: Typescript, React, NestJs, and 
 4. Navigate to the "client" folder and install the frontend dependencies: `npm install`
 
 ## Running the Project
-- Run the backend inside the "server" folder: `npm run start:dev`
-- Run the frontend inside the "client" folder: `npm run dev`
+- Start the backend inside the "server" folder: `npm run start:dev`
+- Start the frontend inside the "client" folder: `npm run dev`
